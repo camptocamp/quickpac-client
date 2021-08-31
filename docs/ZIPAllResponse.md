@@ -1,0 +1,11 @@
+# ZIPAllResponse
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**zip_codes** | [**list[ZIPModel]**](ZIPModel.md) |  | [optional] 
+**errors** | [**list[MessageType]**](MessageType.md) |  | [optional] 
+**warnings** | [**list[MessageType]**](MessageType.md) |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
