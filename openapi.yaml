@@ -1,0 +1,853 @@
+openapi: 3.0.1
+info:
+  title: Quickpac API
+  description: Hier finden Sie alle öffentliche Schnittstellen zum Quickpac-System.
+  version: v1.00
+paths:
+  /Barcode/GenerateLabel:
+    post:
+      tags:
+        - Barcode
+      summary: Generiert einen Adressträger
+      description: "### Generiert einen Adressträger\r\n* Im Fehlerfall wird die Eigenschaft 'Error' oder 'Warning' mit einer oder mehreren entsprechenden Meldungen gesetzt.\r\n* Weitere Informationen finden Sie in der technischen Dokumentation."
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/GenerateLabelRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenerateLabelRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/GenerateLabelRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/GenerateLabelRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/GenerateLabelRequest'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/GenerateLabelRequest'
+          application/*+xml:
+            schema:
+              $ref: '#/components/schemas/GenerateLabelRequest'
+      responses:
+        '200':
+          description: Erfolgreicher Aufruf
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/GenerateLabelResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenerateLabelResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/GenerateLabelResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GenerateLabelResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/GenerateLabelResponse'
+        '403':
+          description: Keine Berechtigung für diese API-Funktion
+  /Pickmup/SetPaketStatus:
+    get:
+      tags:
+        - PickupMigros
+      summary: SetPaketStatus
+      description: '### SetPaketStatus'
+      parameters:
+        - name: useProduction
+          in: query
+          schema:
+            type: boolean
+        - name: validationOnly
+          in: query
+          schema:
+            type: boolean
+        - name: password
+          in: query
+          schema:
+            type: string
+            nullable: true
+        - name: barcodeNr
+          in: query
+          schema:
+            type: string
+            nullable: true
+        - name: paketstatusOld
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: paketstatusNeu
+          in: query
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/PickupMigrosCallbackResultResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PickupMigrosCallbackResultResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/PickupMigrosCallbackResultResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PickupMigrosCallbackResultResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/PickupMigrosCallbackResultResponse'
+    post:
+      tags:
+        - PickupMigros
+      summary: SetPaketStatus
+      description: '### SetPaketStatus'
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/PickupMigrosSetPaketStatusRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PickupMigrosSetPaketStatusRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/PickupMigrosSetPaketStatusRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/PickupMigrosSetPaketStatusRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PickupMigrosSetPaketStatusRequest'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/PickupMigrosSetPaketStatusRequest'
+          application/*+xml:
+            schema:
+              $ref: '#/components/schemas/PickupMigrosSetPaketStatusRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/PickupMigrosCallbackResultResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PickupMigrosCallbackResultResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/PickupMigrosCallbackResultResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PickupMigrosCallbackResultResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/PickupMigrosCallbackResultResponse'
+  /Pickmup/SetRuecksendung:
+    get:
+      tags:
+        - PickupMigros
+      summary: SetRuecksendung
+      description: '### SetRuecksendung'
+      parameters:
+        - name: useProduction
+          in: query
+          schema:
+            type: boolean
+        - name: validationOnly
+          in: query
+          schema:
+            type: boolean
+        - name: password
+          in: query
+          schema:
+            type: string
+            nullable: true
+        - name: barcodeNr
+          in: query
+          schema:
+            type: string
+            nullable: true
+        - name: abholortID
+          in: query
+          schema:
+            type: string
+            nullable: true
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/PickupMigrosCallbackResultResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PickupMigrosCallbackResultResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/PickupMigrosCallbackResultResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PickupMigrosCallbackResultResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/PickupMigrosCallbackResultResponse'
+    post:
+      tags:
+        - PickupMigros
+      summary: SetRuecksendung
+      description: '### SetRuecksendung'
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/PickupMigrosSetRuecksendung'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PickupMigrosSetRuecksendung'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/PickupMigrosSetRuecksendung'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/PickupMigrosSetRuecksendung'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PickupMigrosSetRuecksendung'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/PickupMigrosSetRuecksendung'
+          application/*+xml:
+            schema:
+              $ref: '#/components/schemas/PickupMigrosSetRuecksendung'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/PickupMigrosCallbackResultResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PickupMigrosCallbackResultResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/PickupMigrosCallbackResultResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PickupMigrosCallbackResultResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/PickupMigrosCallbackResultResponse'
+  /ZIP/GetAllZipCodes:
+    get:
+      tags:
+        - ZIP
+      summary: Gibt alle aktuell belieferbaren und geplanten Postleitzahlen zurück.
+      description: "### Belieferbare und geplante Postleitzahlen\r\n* Diese API gibt alle Postleitzahlen in einer Liste zurück welche durch Quickpac aktuell oder zukünftig beliefert werden können.\r\n* Jede Postleitzahl enthält ersten und letzen Zustelltag durch Quickpac\r\n* Im Fehlerfall wird die Eigenschaft 'Error' oder 'Warning' mit einer oder mehreren entsprechenden Meldungen gesetzt."
+      responses:
+        '200':
+          description: Erfolgreicher Aufruf
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ZIPAllResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ZIPAllResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ZIPAllResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ZIPAllResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ZIPAllResponse'
+        '403':
+          description: Keine Berechtigung für diese API-Funktion
+  /ZIP/IsDeliverableZipCode:
+    get:
+      tags:
+        - ZIP
+      summary: Prüft ob die abgefragte Postleitzahl aktuell beliefert werden kann.
+      description: "### Belieferbare Postleitzahl\r\n* Diese API prüft ob die abgefragte Postleitzahl aktuell durch Quickpac beliefert werden kann.\r\n* Im Fehlerfall wird die Eigenschaft 'Error' oder 'Warning' mit einer oder mehreren entsprechenden Meldungen gesetzt."
+      parameters:
+        - name: zipCode
+          in: query
+          description: PLZ im Bereicht von 1,000 - 9,999.
+          schema:
+            type: integer
+            description: PLZ im Bereicht von 1,000 - 9,999.
+            format: int64
+      responses:
+        '200':
+          description: Erfolgreicher Aufruf
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ZIPIsCurrentResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ZIPIsCurrentResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ZIPIsCurrentResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ZIPIsCurrentResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ZIPIsCurrentResponse'
+        '403':
+          description: Keine Berechtigung für diese API-Funktion
+components:
+  schemas:
+    Language:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+      type: integer
+      format: int32
+    PrintAddressesType:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+      type: integer
+      format: int32
+    GenerateLabelDefinition:
+      type: object
+      properties:
+        PrintAddresses:
+          $ref: '#/components/schemas/PrintAddressesType'
+        ImageFileType:
+          type: string
+          nullable: true
+        ImageResolution:
+          type: integer
+          format: int32
+        PrintPreview:
+          type: boolean
+        LabelLayout:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ModeType:
+      enum:
+        - 0
+        - 1
+        - 2
+      type: integer
+      format: int32
+    LogoAspectRatio:
+      enum:
+        - 0
+        - 1
+      type: integer
+      format: int32
+    LogoHorizontalAlign:
+      enum:
+        - 0
+        - 1
+      type: integer
+      format: int32
+    LogoVerticalAlign:
+      enum:
+        - 0
+        - 1
+      type: integer
+      format: int32
+    GenerateLabelCustomer:
+      type: object
+      properties:
+        Name1:
+          type: string
+          nullable: true
+        Name2:
+          type: string
+          nullable: true
+        Street:
+          type: string
+          nullable: true
+        POBox:
+          type: string
+          nullable: true
+        ZIP:
+          type: string
+          nullable: true
+        City:
+          type: string
+          nullable: true
+        Country:
+          type: string
+          nullable: true
+        Logo:
+          type: string
+          format: byte
+          nullable: true
+        LogoFormat:
+          type: string
+          nullable: true
+        LogoRotation:
+          type: integer
+          format: int32
+        LogoRotationSpecified:
+          type: boolean
+        LogoAspectRatio:
+          $ref: '#/components/schemas/LogoAspectRatio'
+        LogoAspectRatioSpecified:
+          type: boolean
+        LogoHorizontalAlign:
+          $ref: '#/components/schemas/LogoHorizontalAlign'
+        LogoHorizontalAlignSpecified:
+          type: boolean
+        LogoVerticalAlign:
+          $ref: '#/components/schemas/LogoVerticalAlign'
+        LogoVerticalAlignSpecified:
+          type: boolean
+      additionalProperties: false
+    GenerateLabelFileInfos:
+      type: object
+      properties:
+        Mode:
+          $ref: '#/components/schemas/ModeType'
+        FrankingLicense:
+          type: string
+          nullable: true
+        Customer:
+          $ref: '#/components/schemas/GenerateLabelCustomer'
+      additionalProperties: false
+    Recipient:
+      type: object
+      properties:
+        Title:
+          type: string
+          nullable: true
+        PersonallyAddressed:
+          type: boolean
+        PersonallyAddressedSpecified:
+          type: boolean
+        Name1:
+          type: string
+          nullable: true
+        FirstName:
+          type: string
+          nullable: true
+        Name2:
+          type: string
+          nullable: true
+        Name3:
+          type: string
+          nullable: true
+        AddressSuffix:
+          type: string
+          nullable: true
+        Street:
+          type: string
+          nullable: true
+        HouseNo:
+          type: string
+          nullable: true
+        POBox:
+          type: string
+          nullable: true
+        ZIP:
+          type: string
+          nullable: true
+        City:
+          type: string
+          nullable: true
+        Country:
+          type: string
+          nullable: true
+        Mobile:
+          type: string
+          nullable: true
+        EMail:
+          type: string
+          nullable: true
+        LabelAddress:
+          type: array
+          items:
+            type: string
+          nullable: true
+        what3words:
+          type: string
+          description: "Gets or sets the what3words.\r\nIn lower case!"
+          nullable: true
+      additionalProperties: false
+    Dimensions:
+      type: object
+      properties:
+        Weight:
+          type: string
+          nullable: true
+        Width:
+          type: string
+          nullable: true
+        Length:
+          type: string
+          nullable: true
+        Height:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ServiceCodeAttributes:
+      type: object
+      properties:
+        PRZL:
+          type: array
+          items:
+            type: string
+          nullable: true
+        Dimensions:
+          $ref: '#/components/schemas/Dimensions'
+      additionalProperties: false
+    ItemChoiceType:
+      enum:
+        - 0
+        - 1
+        - 2
+      type: integer
+      format: int32
+    Communication:
+      type: object
+      properties:
+        Item:
+          type: string
+          nullable: true
+        Email:
+          type: string
+          nullable: true
+        Mobile:
+          type: string
+          nullable: true
+        ItemElementName:
+          $ref: '#/components/schemas/ItemChoiceType'
+      additionalProperties: false
+    NotificationType:
+      enum:
+        - 0
+        - 1
+      type: integer
+      format: int32
+    Notification:
+      type: object
+      properties:
+        Communication:
+          $ref: '#/components/schemas/Communication'
+        Service:
+          type: string
+          nullable: true
+        Language:
+          $ref: '#/components/schemas/Language'
+        Type:
+          $ref: '#/components/schemas/NotificationType'
+        DispatcherName:
+          type: string
+          nullable: true
+      additionalProperties: false
+    Item:
+      type: object
+      properties:
+        ItemID:
+          type: string
+          nullable: true
+        IdentCode:
+          type: string
+          nullable: true
+        Recipient:
+          $ref: '#/components/schemas/Recipient'
+        Attributes:
+          $ref: '#/components/schemas/ServiceCodeAttributes'
+        Notification:
+          type: array
+          items:
+            $ref: '#/components/schemas/Notification'
+          nullable: true
+      additionalProperties: false
+    LabelDataProviderSending:
+      type: object
+      properties:
+        SendingID:
+          type: string
+          nullable: true
+        Item:
+          type: array
+          items:
+            $ref: '#/components/schemas/Item'
+          nullable: true
+      additionalProperties: false
+    LabelDataProvider:
+      type: object
+      properties:
+        Sending:
+          $ref: '#/components/schemas/LabelDataProviderSending'
+      additionalProperties: false
+    LabelData:
+      type: object
+      properties:
+        Provider:
+          $ref: '#/components/schemas/LabelDataProvider'
+      additionalProperties: false
+    GenerateLabelEnvelope:
+      type: object
+      properties:
+        LabelDefinition:
+          $ref: '#/components/schemas/GenerateLabelDefinition'
+        FileInfos:
+          $ref: '#/components/schemas/GenerateLabelFileInfos'
+        Data:
+          $ref: '#/components/schemas/LabelData'
+      additionalProperties: false
+    GenerateLabelRequest:
+      type: object
+      properties:
+        Language:
+          $ref: '#/components/schemas/Language'
+        Envelope:
+          $ref: '#/components/schemas/GenerateLabelEnvelope'
+      additionalProperties: false
+    GenerateLabelResponseDefinition:
+      type: object
+      properties:
+        ColorPrintRequired:
+          type: boolean
+        PrintAddresses:
+          $ref: '#/components/schemas/PrintAddressesType'
+        ImageFileType:
+          type: string
+          nullable: true
+        ImageResolution:
+          type: integer
+          format: int32
+        PrintPreview:
+          type: boolean
+        LabelLayout:
+          type: string
+          nullable: true
+      additionalProperties: false
+    MessageType:
+      type: object
+      properties:
+        Code:
+          type: string
+          nullable: true
+        Message:
+          type: string
+          nullable: true
+      additionalProperties: false
+    LabelResponseItem:
+      type: object
+      properties:
+        IdentCode:
+          type: string
+          nullable: true
+        Label:
+          type: string
+          format: byte
+          nullable: true
+        ItemID:
+          type: string
+          nullable: true
+        Errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/MessageType'
+          nullable: true
+        Warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/MessageType'
+          nullable: true
+      additionalProperties: false
+    GenerateLabelResponseEnvelopeDataProviderSending:
+      type: object
+      properties:
+        SendingID:
+          type: string
+          nullable: true
+        Item:
+          type: array
+          items:
+            $ref: '#/components/schemas/LabelResponseItem'
+          nullable: true
+      additionalProperties: false
+    GenerateLabelResponseEnvelopeDataProvider:
+      type: object
+      properties:
+        Sending:
+          $ref: '#/components/schemas/GenerateLabelResponseEnvelopeDataProviderSending'
+      additionalProperties: false
+    GenerateLabelResponseEnvelopeData:
+      type: object
+      properties:
+        Provider:
+          $ref: '#/components/schemas/GenerateLabelResponseEnvelopeDataProvider'
+      additionalProperties: false
+    GenerateLabelResponseEnvelope:
+      type: object
+      properties:
+        LabelDefinition:
+          $ref: '#/components/schemas/GenerateLabelResponseDefinition'
+        Data:
+          $ref: '#/components/schemas/GenerateLabelResponseEnvelopeData'
+      additionalProperties: false
+    GenerateLabelResponse:
+      type: object
+      properties:
+        Envelope:
+          $ref: '#/components/schemas/GenerateLabelResponseEnvelope'
+      additionalProperties: false
+    PickupMigrosCallbackResultResponse:
+      type: object
+      properties:
+        ErrorCodeField:
+          type: integer
+          format: int32
+        ErrorDetailField:
+          type: string
+          nullable: true
+        ErrorMessageField:
+          type: string
+          nullable: true
+      additionalProperties: false
+    PickupMigrosSetPaketStatusRequest:
+      type: object
+      properties:
+        UseProduction:
+          type: boolean
+        ValidationOnly:
+          type: boolean
+        Password:
+          type: string
+          nullable: true
+        BarcodeNr:
+          type: string
+          nullable: true
+        PaketstatusOld:
+          type: integer
+          format: int32
+        PaketstatusNeu:
+          type: integer
+          format: int32
+      additionalProperties: false
+    PickupMigrosSetRuecksendung:
+      type: object
+      properties:
+        UseProduction:
+          type: boolean
+        ValidationOnly:
+          type: boolean
+        Password:
+          type: string
+          nullable: true
+        BarcodeNr:
+          type: string
+          nullable: true
+        AbholortID:
+          type: string
+          nullable: true
+      additionalProperties: false
+    LanguageCode:
+      enum:
+        - 1
+        - 2
+        - 4
+        - 8
+      type: integer
+      format: int32
+    ZIPModel:
+      type: object
+      properties:
+        ZipCode:
+          type: integer
+          format: int64
+        Depot:
+          type: integer
+          format: int64
+          nullable: true
+        City:
+          type: string
+          nullable: true
+        Language:
+          $ref: '#/components/schemas/LanguageCode'
+        Kanton:
+          type: string
+          nullable: true
+        DeliveryFirst:
+          type: string
+          format: date-time
+        DeliveryLast:
+          type: string
+          format: date-time
+      additionalProperties: false
+    ZIPAllResponse:
+      type: object
+      properties:
+        ZipCodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/ZIPModel'
+          nullable: true
+        Errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/MessageType'
+          nullable: true
+        Warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/MessageType'
+          nullable: true
+      additionalProperties: false
+    ZIPIsCurrentResponse:
+      type: object
+      properties:
+        ZipCode:
+          type: integer
+          description: Gets or sets the ZipCode.
+          format: int64
+        Deliverable:
+          type: boolean
+          description: Gets or sets a value indicating whether this ZipCode is deliverable.
+        Errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/MessageType'
+          nullable: true
+        Warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/MessageType'
+          nullable: true
+      additionalProperties: false
+  securitySchemes:
+    Basic:
+      type: http
+      description: |-
+        [Basic authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) is a simple authentication scheme built into the HTTP protocol.The client sends HTTP requests with the Authorization header that contains the word Basic word followed by a space and a base64 - encoded string username:password.For example, to authorize as demo / p@55w0rd the client would send:
+
+        Authorization: Basic ZGVtbzpwQDU1dzByZA ==
+
+        Note: Because base64 is easily decoded, Basic authentication should only be used together with other security mechanisms such as HTTPS / SSL.
+      scheme: basic
+security:
+  - Basic: []
+
