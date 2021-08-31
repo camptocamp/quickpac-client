@@ -1,4 +1,4 @@
-# swagger_client.ZIPApi
+# quickpac.ZIPApi
 
 All URIs are relative to *https://api.quickpac.ch*
 
@@ -12,22 +12,26 @@ Method | HTTP request | Description
 
 Returns all currently deliverable and planned postcodes.
 
-### Deliverable and planned postcodes   * This API returns all postcodes in a list which can be supplied by Quickpac now or in the future.   * Each postcode contains the first and last day of delivery by Quickpac   * In the event of an error, the 'Error' or 'Warning' property is set with one or more corresponding messages. 
+### Deliverable and planned postcodes
+* This API returns all postcodes in a list which can be supplied by Quickpac now or in the future.
+* Each postcode contains the first and last day of delivery by Quickpac
+* In the event of an error, the 'Error' or 'Warning' property is set with one or more corresponding messages.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import quickpac
+from quickpac.rest import ApiException
 from pprint import pprint
 # Configure HTTP basic authorization: Basic
-configuration = swagger_client.Configuration()
+configuration = quickpac.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = swagger_client.ZIPApi(swagger_client.ApiClient(configuration))
+api_instance = quickpac.ZIPApi(quickpac.ApiClient(configuration))
 
 try:
     # Returns all currently deliverable and planned postcodes.
@@ -60,22 +64,25 @@ This endpoint does not need any parameter.
 
 Checks whether the requested postcode can currently be delivered.
 
-### Deliverable zip code   * This API checks whether the requested zip code can currently be supplied by Quickpac.   * In the event of an error, the 'Error' or 'Warning' property is set with one or more corresponding messages. 
+### Deliverable zip code
+* This API checks whether the requested postcode can currently be supplied by Quickpac.
+* In the event of an error, the 'Error' or 'Warning' property is set with one or more corresponding messages.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import quickpac
+from quickpac.rest import ApiException
 from pprint import pprint
 # Configure HTTP basic authorization: Basic
-configuration = swagger_client.Configuration()
+configuration = quickpac.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = swagger_client.ZIPApi(swagger_client.ApiClient(configuration))
+api_instance = quickpac.ZIPApi(quickpac.ApiClient(configuration))
 zip_code = 789 # int | ZIP code in the range from 1,000 - 9,999. (optional)
 
 try:

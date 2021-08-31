@@ -1,4 +1,4 @@
-# swagger_client.PickupMigrosApi
+# quickpac.PickupMigrosApi
 
 All URIs are relative to *https://api.quickpac.ch*
 
@@ -17,19 +17,20 @@ SetPaketStatus
 ### SetPaketStatus
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import quickpac
+from quickpac.rest import ApiException
 from pprint import pprint
 # Configure HTTP basic authorization: Basic
-configuration = swagger_client.Configuration()
+configuration = quickpac.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = swagger_client.PickupMigrosApi(swagger_client.ApiClient(configuration))
+api_instance = quickpac.PickupMigrosApi(quickpac.ApiClient(configuration))
 use_production = true # bool |  (optional)
 validation_only = true # bool |  (optional)
 password = 'password_example' # str |  (optional)
@@ -79,20 +80,21 @@ SetPaketStatus
 ### SetPaketStatus
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import quickpac
+from quickpac.rest import ApiException
 from pprint import pprint
 # Configure HTTP basic authorization: Basic
-configuration = swagger_client.Configuration()
+configuration = quickpac.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = swagger_client.PickupMigrosApi(swagger_client.ApiClient(configuration))
-body = swagger_client.PickupMigrosSetPaketStatusRequest() # PickupMigrosSetPaketStatusRequest |  (optional)
+api_instance = quickpac.PickupMigrosApi(quickpac.ApiClient(configuration))
+body = quickpac.PickupMigrosSetPaketStatusRequest() # PickupMigrosSetPaketStatusRequest |  (optional)
 
 try:
     # SetPaketStatus
@@ -131,19 +133,20 @@ SetRuecksendung
 ### SetRuecksendung
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import quickpac
+from quickpac.rest import ApiException
 from pprint import pprint
 # Configure HTTP basic authorization: Basic
-configuration = swagger_client.Configuration()
+configuration = quickpac.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = swagger_client.PickupMigrosApi(swagger_client.ApiClient(configuration))
+api_instance = quickpac.PickupMigrosApi(quickpac.ApiClient(configuration))
 use_production = true # bool |  (optional)
 validation_only = true # bool |  (optional)
 password = 'password_example' # str |  (optional)
@@ -191,20 +194,21 @@ SetRuecksendung
 ### SetRuecksendung
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import quickpac
+from quickpac.rest import ApiException
 from pprint import pprint
 # Configure HTTP basic authorization: Basic
-configuration = swagger_client.Configuration()
+configuration = quickpac.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = swagger_client.PickupMigrosApi(swagger_client.ApiClient(configuration))
-body = swagger_client.PickupMigrosSetRuecksendung() # PickupMigrosSetRuecksendung |  (optional)
+api_instance = quickpac.PickupMigrosApi(quickpac.ApiClient(configuration))
+body = quickpac.PickupMigrosSetRuecksendung() # PickupMigrosSetRuecksendung |  (optional)
 
 try:
     # SetRuecksendung

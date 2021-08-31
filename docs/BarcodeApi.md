@@ -1,4 +1,4 @@
-# swagger_client.BarcodeApi
+# quickpac.BarcodeApi
 
 All URIs are relative to *https://api.quickpac.ch*
 
@@ -11,23 +11,26 @@ Method | HTTP request | Description
 
 Generates an address label
 
-### Generates an address label   * In the event of an error, the 'Error' or 'Warning' property is set with one or more corresponding messages.   * You can find further information in the technical documentation.
+### Generates an address label
+
+* In the event of an error, the 'Error' or 'Warning' property is set with one or more corresponding messages.
+* Please refer to the technical documentation for more information.
 
 ### Example
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import quickpac
+from quickpac.rest import ApiException
 from pprint import pprint
 # Configure HTTP basic authorization: Basic
-configuration = swagger_client.Configuration()
+configuration = quickpac.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = swagger_client.BarcodeApi(swagger_client.ApiClient(configuration))
-body = swagger_client.GenerateLabelRequest() # GenerateLabelRequest |  (optional)
+api_instance = quickpac.BarcodeApi(quickpac.ApiClient(configuration))
+body = quickpac.GenerateLabelRequest() # GenerateLabelRequest |  (optional)
 
 try:
     # Generates an address label
