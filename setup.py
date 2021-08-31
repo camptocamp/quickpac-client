@@ -11,6 +11,10 @@
 """
 
 from setuptools import setup, find_packages  # noqa: H301
+from pathlib import Path
+
+current_dir = Path(__file__).parent
+long_description = (current_dir / "README.md").read_text()
 
 NAME = "quickpac"
 VERSION = "1.0.0"
@@ -27,13 +31,12 @@ setup(
     name=NAME,
     version=VERSION,
     description="Quickpac API",
-    author_email="",
-    url="",
-    keywords=["Swagger", "Quickpac API"],
+    author="Quickpac",
+    url="https://api.quickpac.ch/swagger/index.html",
+    keywords=["Swagger", "Quickpac", "API"],
     install_requires=REQUIRES,
     packages=find_packages(),
     include_package_data=True,
-    long_description="""\
-    Here you will find all public interfaces to the Quickpac system.  # noqa: E501
-    """
+    long_description=long_description,
+    long_description_content_type='text/markdown'
 )
