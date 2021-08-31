@@ -1,15 +1,15 @@
 openapi: 3.0.1
 info:
   title: Quickpac API
-  description: Hier finden Sie alle öffentliche Schnittstellen zum Quickpac-System.
+  description: Here you will find all public interfaces to the Quickpac system.
   version: v1.00
 paths:
   /Barcode/GenerateLabel:
     post:
       tags:
         - Barcode
-      summary: Generiert einen Adressträger
-      description: "### Generiert einen Adressträger\r\n* Im Fehlerfall wird die Eigenschaft 'Error' oder 'Warning' mit einer oder mehreren entsprechenden Meldungen gesetzt.\r\n* Weitere Informationen finden Sie in der technischen Dokumentation."
+      summary: Generates an address label
+      description: "### Generates an address label\r\n * In the event of an error, the 'Error' or 'Warning' property is set with one or more corresponding messages.\r\n * You can find further information in the technical documentation."
       requestBody:
         content:
           application/json-patch+json:
@@ -35,7 +35,7 @@ paths:
               $ref: '#/components/schemas/GenerateLabelRequest'
       responses:
         '200':
-          description: Erfolgreicher Aufruf
+          description: Successful call
           content:
             text/plain:
               schema:
@@ -53,7 +53,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GenerateLabelResponse'
         '403':
-          description: Keine Berechtigung für diese API-Funktion
+          description: No authorization for this API function
   /Pickmup/SetPaketStatus:
     get:
       tags:
@@ -255,11 +255,11 @@ paths:
     get:
       tags:
         - ZIP
-      summary: Gibt alle aktuell belieferbaren und geplanten Postleitzahlen zurück.
-      description: "### Belieferbare und geplante Postleitzahlen\r\n* Diese API gibt alle Postleitzahlen in einer Liste zurück welche durch Quickpac aktuell oder zukünftig beliefert werden können.\r\n* Jede Postleitzahl enthält ersten und letzen Zustelltag durch Quickpac\r\n* Im Fehlerfall wird die Eigenschaft 'Error' oder 'Warning' mit einer oder mehreren entsprechenden Meldungen gesetzt."
+      summary: Returns all currently deliverable and planned postcodes.
+      description: "### Deliverable and planned postcodes\r\n * This API returns all postcodes in a list which can be supplied by Quickpac now or in the future.\r\n * Each postcode contains the first and last day of delivery by Quickpac\r\n * In the event of an error, the 'Error' or 'Warning' property is set with one or more corresponding messages. "
       responses:
         '200':
-          description: Erfolgreicher Aufruf
+          description: Successful call
           content:
             text/plain:
               schema:
@@ -277,24 +277,24 @@ paths:
               schema:
                 $ref: '#/components/schemas/ZIPAllResponse'
         '403':
-          description: Keine Berechtigung für diese API-Funktion
+          description: No authorization for this API function
   /ZIP/IsDeliverableZipCode:
     get:
       tags:
         - ZIP
-      summary: Prüft ob die abgefragte Postleitzahl aktuell beliefert werden kann.
-      description: "### Belieferbare Postleitzahl\r\n* Diese API prüft ob die abgefragte Postleitzahl aktuell durch Quickpac beliefert werden kann.\r\n* Im Fehlerfall wird die Eigenschaft 'Error' oder 'Warning' mit einer oder mehreren entsprechenden Meldungen gesetzt."
+      summary: Checks whether the requested postcode can currently be delivered.
+      description: "### Deliverable zip code\r\n * This API checks whether the requested zip code can currently be supplied by Quickpac.\r\n * In the event of an error, the 'Error' or 'Warning' property is set with one or more corresponding messages. "
       parameters:
         - name: zipCode
           in: query
-          description: PLZ im Bereicht von 1,000 - 9,999.
+          description: ZIP code in the range from 1,000 - 9,999.
           schema:
             type: integer
-            description: PLZ im Bereicht von 1,000 - 9,999.
+            description: ZIP code in the range from 1,000 - 9,999.
             format: int64
       responses:
         '200':
-          description: Erfolgreicher Aufruf
+          description: Successful call
           content:
             text/plain:
               schema:
@@ -312,7 +312,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ZIPIsCurrentResponse'
         '403':
-          description: Keine Berechtigung für diese API-Funktion
+          description: No authorization for this API function
 components:
   schemas:
     Language:
