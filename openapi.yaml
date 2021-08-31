@@ -1,4 +1,6 @@
 openapi: 3.0.1
+servers:
+  - url: https://api.quickpac.ch
 info:
   title: Quickpac API
   description: Here you will find all public interfaces to the Quickpac system.
